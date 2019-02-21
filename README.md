@@ -1,4 +1,6 @@
-# tx2voice
+# txt2voice
+================
+
 txt2voice by Tim Gore, KE6QBV
 
 txt2voice is a small python program to create voice files from inputed text. These
