@@ -1,35 +1,33 @@
-#
-# Program that takes text and turns it into speech. Speech is 
-# saved as an MP3 file for later processing. 
-# 
-# We'll be using Google's TTS. (pip3 install gtts)
-#
+'''
+txt2voice by Tim Gore, KE6QBV
+
+txt2voice is a small python program to create voice files from inputed text. These
+voice files can then be converted to channel announcements for use Motorola two-way
+radios. 
+
+The text-to-speech engine used is Google's "gTTS". To install: 'pip3 install gtts'
+
+This program has only been tested with linux. I have no desire to make it work in 
+Windows or MacOS
+
+To-do items:
+    - allow users to input a CSV or text file instead of entering each text string individually
+    - Once files are made, do the nessassary conversion from inside program
+'''
+
 from gtts import gTTS
 
-word = input("Enter text to be turned into speech: ")
-tts = gTTS(text = word, lang = 'en')
-filename = word + ".mp3"
-tts.save(filename)
+# create a list and find out how many files to make
+list = []
+number = int(input("How many strings of text? "))
 
-
-
-
-
-
-# Experimental workspace:
-
-word_list = []
-quantity = int(input("How many strings of text? "))
-quantity = quantity - 1
-
-
-
-# first_string = str(input("Enter string #1: "))
-# second_string = str(input("Enter string #2: "))
-# third_string = str(input("Enter string #3: "))
-
-
-for i in range(0, quantity):
+# get text for desired voice file(s)
+for i in range(0, number):
     word = str(input("Please enter a string: "))
-    word_list.append(word)
+    list.append(word)
 
+# create voice files
+for x in range(len(list)):
+    tts = gTTS(list[x], lang = "en")
+    filename = list[x] + ".mp3"
+    tts.save(filename)
