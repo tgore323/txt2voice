@@ -7,9 +7,7 @@ files for use with Motorola two-way radios. Program creates MP3 files
 which will need conversion to WAV files with proper formatting. (See
 to-do items).
 
-INSTRUCTIONS:
-
-The text-to-speech engine used is Google's "gTTS". To install: 'pip3 install gtts'
+INSTRUCTIONS: The text-to-speech engine used is Google's "gTTS". To install: 'pip3 install gtts'
 If choosing to import a text file, make sure you use the full filename. For example. if
 you want to import a text file called 'input' you would enter input.txt. The file must 
 be located in the same directory as this python file.
