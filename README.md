@@ -21,10 +21,10 @@ at end of file, or you'll get an "AssertionError: No text to speak" (see to-do)
 This program has only been tested with linux. I have no desire to make it work in 
 Windows or MacOS. If you do, be my guest.
 
-To-do items:
-    - Handle error when user inputs a text file name that doesn't exist
-    - Once files are made, do the nessassary conversion from inside program (ffmpeg?)
-    - GUI?
-    - Have user supply file location instead of requiring the file to be in 
-      same directory as program.
-    - Handle error when there are blank lines at bottom of text file
+TO-DO LIST:
+- Handle error when user inputs a text file name that doesn't exist
+- Once files are made, do the nessassary conversion from inside program (ffmpeg?)
+- GUI?
+- Have user supply file location instead of requiring the file to be in same directory as program.
+- Handle error when there are blank lines at bottom of text file
+- Show progress of conversion. Verbose perhaps?
