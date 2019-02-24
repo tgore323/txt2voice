@@ -21,9 +21,9 @@ This program has only been tested with linux. I have no desire to make it work i
 Windows or MacOS. If you do, be my guest.
 
 To-do items:
-    - Once files are made, do the nessassary conversion from inside program
-    - GUI?
-    - Have user supply file location (path) instead of requiring the file to be in 
-      same directory as program.
-    - Handle error when there are blank lines at bottom of text file
-    - Show progress of conversion. Verbose perhaps?
+- Once files are made, do the nessassary conversion from inside program
+- GUI?
+- Have user supply file location (path) instead of requiring the file to be in same directory as program.
+- Handle error when there are blank lines at bottom of text file
+- Show progress of conversion. Verbose perhaps?
+
