@@ -1,13 +1,15 @@
 '''
 txt2voice by Tim Gore, KE6QBV@galvonix.com
-version 0.5.0
+version 0.5.1    2/24/2018
 
 txt2voice is a small python program to create channel announcement
 files for use with Motorola two-way radios. Program creates MP3 files
 which will need conversion to WAV files with proper formatting. (See
 to-do items).
 
-INSTRUCTIONS: The text-to-speech engine used is Google's "gTTS". To install: 'pip3 install gtts'
+INSTRUCTIONS:
+
+The text-to-speech engine used is Google's "gTTS". To install: 'pip3 install gtts'
 If choosing to import a text file, make sure you use the full filename. For example. if
 you want to import a text file called 'input' you would enter input.txt. The file must 
 be located in the same directory as this python file.
@@ -19,15 +21,16 @@ This program has only been tested with linux. I have no desire to make it work i
 Windows or MacOS. If you do, be my guest.
 
 To-do items:
-    - Handle error when user inputs a text file name that doesn't exist
     - Once files are made, do the nessassary conversion from inside program
     - GUI?
-    - Have user supply file location instead of requiring the file to be in 
+    - Have user supply file location (path) instead of requiring the file to be in 
       same directory as program.
     - Handle error when there are blank lines at bottom of text file
 '''
 
 from gtts import gTTS # import Google's TTS
+import os.path # for file system access
+from time import sleep # for delaying program output
 
 print("\nHow would you like to supply the source text? \n")
 source = ''
@@ -45,11 +48,17 @@ while source != 'q':
     if source == '1':
         list = []
         txt_filename = str(input("Please enter file name: "))
-        list = open(txt_filename).read().splitlines()
-        for x in range(len(list)):
-            tts = gTTS(list[x], lang = "en")
-            filename = list[x] + ".mp3"
-            tts.save(filename)
+        os.path.isfile(txt_filename)
+        if os.path.isfile(txt_filename) == True:
+            list = open(txt_filename).read().splitlines()
+            for x in range(len(list)):
+                tts = gTTS(list[x], lang = "en")
+                filename = list[x] + ".mp3"
+                tts.save(filename)
+        else:
+            print("\nThe text file name you entered is not valid. Please try again. \n")
+            sleep(2)
+
     # If user chooses to manually input text, ask how many items to process.
     elif source == '2':
         list = []
