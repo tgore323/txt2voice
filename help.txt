@@ -1,0 +1,13 @@
+INSTRUCTIONS:
+
+The text-to-speech engine used is Google's "gTTS". To install: 'pip3 install gtts'
+
+If choosing to import a text file, make sure you use the full filename. For example. if
+you want to import a text file called 'input' you would enter input.txt. The file must 
+be located in the same directory as this python file.
+
+IMPORTANT INFO REGARDING TEXT FILES: Make sure desired text file has no empty spaces 
+at end of file, or you'll get an "AssertionError: No text to speak"
+
+
+

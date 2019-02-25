@@ -1,6 +1,6 @@
 '''
 txt2voice by Tim Gore, KE6QBV@galvonix.com
-version 0.5.1    2/24/2018
+version 0.5.2    2/25/2018
 
 txt2voice is a small python program to create channel announcement
 files for use with Motorola two-way radios. Program creates MP3 files
@@ -25,7 +25,7 @@ To-do items:
     - GUI?
     - Have user supply file location (path) instead of requiring the file to be in 
       same directory as program.
-    - Handle error when there are blank lines at bottom of text file
+    - Handle error when there are blank lines at bottom of text file (or just remove them).
 '''
 
 from gtts import gTTS # import Google's TTS
@@ -34,10 +34,11 @@ from time import sleep # for delaying program output
 
 print("\nHow would you like to supply the source text? \n")
 source = ''
-# Loop until user quits.
+# Menu to choose text source or quit
 while source != 'q':
     print("\n[1] From a text file.")
     print("[2] Manual entry.")
+    print("[h] View help.")
     print("[q] Quit txt2voice.")
     
     # User's choice of source
@@ -47,10 +48,11 @@ while source != 'q':
     # line from file and generate MP3 files.
     if source == '1':
         list = []
-        txt_filename = str(input("Please enter file name: "))
+        txt_filename = str(input("\nPlease enter file name: "))
         os.path.isfile(txt_filename)
         if os.path.isfile(txt_filename) == True:
             list = open(txt_filename).read().splitlines()
+
             for x in range(len(list)):
                 tts = gTTS(list[x], lang = "en")
                 filename = list[x] + ".mp3"
@@ -72,9 +74,20 @@ while source != 'q':
             tts = gTTS(list[x], lang = "en")
             filename = list[x] + ".mp3"
             tts.save(filename)
+    # Display help.txt which is located in program root directory
+    elif source == 'h':
+        if os.path.isfile("help.txt") == True:
+            f = open('help.txt', 'r')
+            help_contents = f.read()
+            print (help_contents)
+            f.close()
+            input("\nPress ENTER to return to the main menu.\n")
+        else:
+            input("\nERROR: File help.txt not found. Press ENTER to return to the main menu.\n")
     # If user chooses to quit, then quit
     elif source == 'q':
         print("\nExiting program.\n")
     # What happens if user enters something other than 1, 2 or q
     else:
         print("\nInvalid input. Please try again.\n")
+
