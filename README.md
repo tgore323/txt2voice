@@ -1,7 +1,9 @@
-txt2voice by Tim Gore, KE6QBV@galvonix.com<br>
-version 0.5.3<br>
-2/26/2018
-<br>
+# txt2voice
+
+txt2voice by Tim Gore, KE6QBV@galvonix.com
+version 0.5.3
+2/26/2019
+
 txt2voice is a small python program to create channel announcement
 files for use with Motorola two-way radios. This program creates MP3 files
 which will need conversion to WAV files with proper formatting. (See
@@ -22,6 +24,6 @@ This program has only been tested with linux. I have no desire to make it work i
 Windows or MacOS. If you do, be my guest.
 
 To-do items:
-    - Once files are made, do the nessassary conversion from inside program
-    - GUI?
-    - Handle error when there are blank lines at bottom of text file (or just remove them).
+- Once files are made, do the nessassary conversion from inside program
+- GUI?
+- Handle error when there are blank lines at bottom of text file (or just remove them).
