@@ -1,24 +1,24 @@
 '''
 txt2voice by Tim Gore, KE6QBV@galvonix.com
-version 0.5.3    2/26/2018
+version 0.5.4    3/1/2018
 
 txt2voice is a small python program to create channel announcement
 files for use with Motorola two-way radios. This program creates MP3 files
 which will need conversion to WAV files with proper formatting. (See
-to-do items). 
+to-do items).
 
 INSTRUCTIONS:
 
 The text-to-speech engine used is Google's "gTTS". To install: 'pip3 install gtts'
 
-If choosing to import a text file, make sure you use the full path if the file is not in 
+If choosing to import a text file, make sure you use the full path if the file is not in
 the same directory as this program. For an example, if the text file was in my home
 directory I would enter /home/tim/textfilename.txt
 
-IMPORTANT INFO REGARDING TEXT FILES: Make sure desired text file has no empty spaces 
+IMPORTANT INFO REGARDING TEXT FILES: Make sure desired text file has no empty spaces
 at end of file, or you'll get an "AssertionError: No text to speak" (See to-do items).
 
-This program has only been tested with linux. I have no desire to make it work in 
+This program has only been tested with linux. I have no desire to make it work in
 Windows or MacOS. If you do, be my guest.
 
 To-do items:
@@ -28,7 +28,7 @@ To-do items:
 '''
 
 from gtts import gTTS # import Google's TTS
-import os.path # for file system access
+import os # for file system access
 from time import sleep # for delaying program output
 
 print("\nHow would you like to supply the source text? \n")
@@ -39,23 +39,26 @@ while source != 'q':
     print("[2] Manual entry.")
     print("[h] View help.")
     print("[q] Quit txt2voice.")
-    
+
     # User's choice of source
     source = input("\nEnter your selection: ")
-    
+
     # If user chooses to import text file, ask for file name, then take each
     # line from file and generate MP3 files.
     if source == '1':
         list = []
-        txt_filename = str(input("\nPlease enter the file's location: "))
+        cwd = os.getcwd()
+        print("\nYour current working directory is: \n ")
+        print(cwd)
+        txt_filename = str(input("\nPlease enter the location of your text file: "))
         os.path.isfile(txt_filename)
         if os.path.isfile(txt_filename) == True:
             list = open(txt_filename).read().splitlines()
-
             for x in range(len(list)):
                 tts = gTTS(list[x], lang = "en")
                 filename = list[x] + ".mp3"
                 tts.save(filename)
+                print("\nCreating file: " + filename)
         else:
             print("\nThe location you entered is not valid. Please try again. \n")
             sleep(2)
@@ -68,11 +71,12 @@ while source != 'q':
             # Ask for manual input
             word = str(input("Please enter a string of text: "))
             list.append(word)
-        # create voice files from text entered 
+        # create voice files from text entered
         for x in range(len(list)):
             tts = gTTS(list[x], lang = "en")
             filename = list[x] + ".mp3"
             tts.save(filename)
+            print("\nCreating file: " + filename)
     # Display help.txt which is located in program root directory
     elif source == 'h':
         if os.path.isfile("help.txt") == True:
@@ -89,4 +93,3 @@ while source != 'q':
     # What happens if user enters something other than 1, 2 or q
     else:
         print("\nInvalid input. Please try again.\n")
-
