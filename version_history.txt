@@ -1,3 +1,7 @@
+0.6.0
+- added alpha code converter.py
+- updated readme, version_history
+
 0.5.5
 -added ability to strip spaces in file names and replace with underscore
 
