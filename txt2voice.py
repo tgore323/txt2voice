@@ -76,6 +76,7 @@ while source != 'q':
         for x in range(len(list)):
             tts = gTTS(list[x], lang = "en")
             filename = list[x] + ".mp3"
+            filename = filename.replace(" ", "_")
             tts.save(filename)
             print("\nCreating file: " + filename)
     # Display help.txt which is located in program root directory
