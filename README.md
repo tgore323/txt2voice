@@ -1,6 +1,6 @@
 # txt2voice
 
-txt2voice by Tim Gore, KE6QBV@galvonix.com<br>
+txt2voice by Tim Gore, tgore323@gmail.com<br>
 version 1.0.0 BETA<br>
 3/1/2020<br>
 
