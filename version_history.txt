@@ -1,21 +1,24 @@
-0.6.0
+1.0.0 Beta
+- Software now handles ALL file conversions
+
+0.6.0a
 - added alpha code converter.py
 - updated readme, version_history
 
-0.5.5
+0.5.5a
 -added ability to strip spaces in file names and replace with underscore
 
-0.5.4
+0.5.4a
 -added release_notes.txt file
 -print text of what file is being created for manual and automatic
 -print current working directory before asking where source txt file is
 
-0.5.3
+0.5.3a
 -you can now input a path anywhere on your (accessable) file system.
 -fixed text feedback 
 0.5.2
 
-0.5.1
+0.5.1a
 
-0.5.0
+0.5.0a
 -First public release

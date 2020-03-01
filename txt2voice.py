@@ -30,6 +30,8 @@ To-do items:
 from gtts import gTTS # import Google's TTS
 import os # for file system access
 from time import sleep # for delaying program output
+import glob
+
 
 print("\nHow would you like to supply the source text? \n")
 source = ''
@@ -60,6 +62,15 @@ while source != 'q':
                 filename = filename.replace(" ", "_")
                 tts.save(filename)
                 print("\nCreating file: " + filename)
+                lst = glob.glob("*.mp3")
+                print(lst)
+                for file in lst:
+                # convert wav to mp3
+	                os.system(f"""ffmpeg -i {file} -acodec pcm_s16le -ar 8000 {file[:-4]}.wav""") 
+                # delete mp3 files after wav created
+                currentdir = os.getcwd() + '/*.mp3'
+                allmp3 = "rm *.mp3"
+                os.system(allmp3)
         else:
             print("\nThe location you entered is not valid. Please try again. \n")
             sleep(2)
@@ -79,7 +90,15 @@ while source != 'q':
             filename = filename.replace(" ", "_")
             tts.save(filename)
             print("\nCreating file: " + filename)
-    # Display help.txt which is located in program root directory
+            lst = glob.glob("*.mp3")
+            print(lst)
+            for file in lst:
+                # convert wav to mp3
+	            os.system(f"""ffmpeg -i {file} -acodec pcm_s16le -ar 8000 {file[:-4]}.wav""")
+                # Display help.txt which is located in program root directory
+            currentdir = os.getcwd() + '/*.mp3'
+            allmp3 = "rm *.mp3"
+            os.system(allmp3)
     elif source == 'h':
         if os.path.isfile("help.txt") == True:
             f = open('help.txt', 'r')
