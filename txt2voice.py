@@ -44,6 +44,7 @@ while source != 'q':
 
     # User's choice of source
     source = input("\nEnter your selection: ")
+    source = source.lower()
 
     # If user chooses to import text file, ask for file name, then take each
     # line from file and generate MP3 files.
