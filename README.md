@@ -1,8 +1,8 @@
 # txt2voice
 
 txt2voice by Tim Gore, tgore323@gmail.com<br>
-version 1.0.0 BETA<br>
-3/1/2020<br>
+version 1.0.1 BETA<br>
+1/2/2021<br>
 
 txt2voice is a small python program to create channel announcement voice
 files for use with Motorola two-way radios. This program creates WAV files that are 
